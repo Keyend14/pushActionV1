@@ -29,7 +29,7 @@ describe("Testing GitCommand.status()", function(){
     it('Should return information if no changes in directory', function(){
         let wd = new WorkingDirectory();
         let git = new GitCommand(wd);
-        let output = git.additionalTest("github");
+        let output = git.additionalTest("guthib");
         expect(output).to.equal('Succesfully Confirmed');
     });
 })
