@@ -9,6 +9,15 @@ class GitCommand {
         return "Initialized as empty Git repository.";
     }
 
+    additionalTest(text){
+        if(text == "github"){
+            return "Succesfully Confirmed";
+        }
+        else{
+            return "Invalid";
+        }
+    }
+
     //Command: git status
     status(){        
         /*
