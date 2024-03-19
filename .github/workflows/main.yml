@@ -23,6 +23,9 @@ jobs:
       run: npm test
 
     - name: Update Pull Request Status
-      uses: repo-sync/pull-request-status@v2
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        curl -X POST \
+          -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/${{ github.repository }}/check-runs \
+          -d '{"name": "Automated Tests", "head_sha": "${{ github.sha }}", "status": "completed", "conclusion": "success", "output": {"title": "Tests Passed", "summary": "All tests passed successfully."}}'
