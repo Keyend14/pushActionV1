@@ -1,17 +1,13 @@
 name: Github Actions Example
 
-on:
-  push:
-    branches:
-      - main
-      - develop
+on: push
 
 jobs:
-  build:
+  super-lint:
+    name: Lint code base
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Repository
+    - name: Checkout code
       uses: actions/checkout@v2
 
     - name: Set up Node.js
@@ -23,5 +19,3 @@ jobs:
     - name: Run Tests
       run: npm test
 
-    - name: Deploy
-      run: # Add your deployment steps here
